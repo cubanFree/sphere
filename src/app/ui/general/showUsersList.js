@@ -33,7 +33,7 @@ export default function ShowUsersList({ users }) {
                         return (
                             <li
                                 key={index}
-                                className="w-full flex justify-center items-center border border-black hover:border-gray-800 p-4 rounded-xl"
+                                className="w-full flex justify-center items-center border border-black hover:border-gray-800 sm:p-4 px-0 py-4 rounded-xl"
                             >
                                 <Link
                                     href={`${pathname}/${user.user_name}`}
