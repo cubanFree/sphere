@@ -23,7 +23,7 @@ export default async function layout({ children }) {
                     <Header />
                 </header>
 
-                <main className="md:min-w-[600px] md:border-x md:border-gray-900">
+                <main className="md:min-w-[600px] md:max-w-[600px] md:border-x md:border-gray-900">
                     {children}
                 </main>
 

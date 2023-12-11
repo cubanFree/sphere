@@ -15,13 +15,13 @@ export default async function Profile() {
 
     return (
         <>
-            <header>
+            <header className="w-full">
                 <Suspense fallback={<ProfileSkeleton />}>
                     <HeaderProfile id={id}/>
                 </Suspense>
             </header>
             <Divider className="bg-gray-800" />
-            <main>
+            <main className="w-full">
                 <Suspense fallback={<Spinner size="md" />}>
                     <MainProfile  id={id}/>
                 </Suspense>

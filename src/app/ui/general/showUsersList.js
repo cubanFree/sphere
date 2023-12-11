@@ -4,6 +4,8 @@ import { useSearchParams, usePathname } from "next/navigation";
 import AvatarDesign from "./avatarDesign";
 import Link from "next/link";
 import BtnFollow from "./btnFollow";
+import { FaUserFriends } from "react-icons/fa";
+import { getTimeAgo } from "./getTimeAgo";
 
 export default function ShowUsersList({ users }) {
 
@@ -24,10 +26,14 @@ export default function ShowUsersList({ users }) {
             <ul className="w-full flex flex-col items-start justify-center">
                 {
                     filterUsers.map((user, index) => {
+
+                        // Get time ago
+                        const getTime = getTimeAgo(user.friend_since);
+
                         return (
                             <li
                                 key={index}
-                                className="w-full flex justify-center items-center border border-black hover:border-gray-900 p-4 rounded-xl"
+                                className="w-full flex justify-center items-center border border-black hover:border-gray-800 p-4 rounded-xl"
                             >
                                 <Link
                                     href={`${pathname}/${user.user_name}`}
@@ -35,9 +41,10 @@ export default function ShowUsersList({ users }) {
                                 >
                                     <AvatarDesign path={user.avatar_url} />
                                     <div className="w-full flex flex-col items-start justify-start">
-                                        <div className="w-full flex gap-4 items-center">
+                                        <div className="w-full flex gap-2 items-center">
                                             <span>{user.full_name}</span>
-                                            <span className="text-gray-500 text-sm">• since {user.friend_since}</span>
+                                            <FaUserFriends className="text-gray-500"/>
+                                            <span className="text-gray-500 text-sm">{getTime}</span>
                                         </div>
                                         <span className="text-gray-400 text-sm">@{user.user_name}</span>
                                     </div>
